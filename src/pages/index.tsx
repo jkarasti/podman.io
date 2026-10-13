@@ -25,16 +25,16 @@ const FeatureItem = ({ title, description }: { title: string; description: strin
   const icon = FEATURE_ICONS[title] || 'material-symbols:check-circle-rounded';
 
   return (
-    <div className="group relative flex h-full flex-col items-center justify-start rounded-2xl border border-purple-100/60 bg-white p-7 text-center shadow-[0_4px_20px_rgba(0,0,0,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:border-white/10 dark:bg-[#232326] dark:shadow-none dark:hover:border-white/20 sm:p-8">
-      {/* Icon */}
-      <div className="dark:text-purple-400 mb-5 flex items-center justify-center text-[#892CA0] transition-transform duration-300 group-hover:scale-110">
-        <Icon icon={icon} className="text-6xl sm:text-7xl" />
+    <div className="group relative flex h-full flex-col justify-start rounded-2xl border border-purple-100/60 bg-white p-7 text-left shadow-[0_4px_20px_rgba(0,0,0,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] dark:border-white/10 dark:bg-[#232326] dark:shadow-none dark:hover:border-white/20 sm:p-8">
+      {/* Header: Icon + Title */}
+      <div className="mb-4 flex items-center gap-4">
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-purple-100 text-[#892CA0] shadow-sm transition-transform duration-300 group-hover:scale-110 dark:bg-purple-900/40 dark:text-purple-300">
+          <Icon icon={icon} className="text-3xl" />
+        </div>
+        <h3 className="text-2xl font-bold tracking-tight text-gray-900 transition-colors group-hover:text-[#892CA0] dark:text-white dark:group-hover:text-white">
+          {title}
+        </h3>
       </div>
-
-      {/* Title */}
-      <h3 className="mb-3 text-2xl font-bold tracking-tight text-gray-900 transition-colors group-hover:text-[#892CA0] dark:text-white dark:group-hover:text-white">
-        {title}
-      </h3>
 
       {/* Body description */}
       <Markdown
