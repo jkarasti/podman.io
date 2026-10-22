@@ -437,3 +437,80 @@ export function formatVideoOffsetDisplay(totalSeconds: number): string {
   if (m > 0) return `${m} min`;
   return `${s} sec`;
 }
+
+export interface MeetingUrlState {
+  activeType: 'community' | 'cabal';
+  selectedMeetingId: string;
+  activeTab: 'notes' | 'transcript';
+}
+
+/**
+ * Resolves the meeting view state from URL query parameters.
+ * Validates that the requested date exists within the selected category's meetings,
+ * falling back to the first available meeting if the date is invalid or absent.
+ */
+export function resolveMeetingUrlState(
+  search: string | URLSearchParams,
+  communityMeetings: Array<{ id: string }>,
+  cabalMeetings: Array<{ id: string }>,
+): MeetingUrlState {
+  const params = typeof search === 'string' ? new URLSearchParams(search) : search;
+  const typeParam = params.get('type');
+  const dateParam = params.get('date');
+  const tabParam = params.get('tab');
+
+  const activeType: 'community' | 'cabal' = typeParam === 'cabal' ? 'cabal' : 'community';
+  const targetList = activeType === 'cabal' ? cabalMeetings : communityMeetings;
+
+  let selectedMeetingId = '';
+  if (dateParam && targetList.some(m => m.id === dateParam)) {
+    selectedMeetingId = dateParam;
+  } else if (targetList.length > 0) {
+    selectedMeetingId = targetList[0].id;
+  }
+
+  const activeTab: 'notes' | 'transcript' = tabParam === 'transcript' ? 'transcript' : 'notes';
+
+  return {
+    activeType,
+    selectedMeetingId,
+    activeTab,
+  };
+}
+
+/**
+ * Returns the default meeting to select when switching meeting categories.
+ */
+export function getCategoryDefaultMeeting<T extends { id: string }>(
+  type: 'community' | 'cabal',
+  communityMeetings: T[],
+  cabalMeetings: T[],
+): T | undefined {
+  const targetList = type === 'cabal' ? cabalMeetings : communityMeetings;
+  return targetList[0];
+}
+
+/**
+ * Builds or updates URL search parameters for meetings page state transitions.
+ * Ensures stale parameters are properly cleared (e.g. date parameter when collapsed).
+ */
+export function buildMeetingUrlSearchParams(
+  currentSearch: string | URLSearchParams,
+  updates: { date?: string | null; type?: 'community' | 'cabal'; tab?: 'notes' | 'transcript' },
+): URLSearchParams {
+  const params = new URLSearchParams(typeof currentSearch === 'string' ? currentSearch : currentSearch.toString());
+  if (updates.type !== undefined) {
+    params.set('type', updates.type);
+  }
+  if (updates.date !== undefined) {
+    if (updates.date) {
+      params.set('date', updates.date);
+    } else {
+      params.delete('date');
+    }
+  }
+  if (updates.tab !== undefined) {
+    params.set('tab', updates.tab);
+  }
+  return params;
+}
