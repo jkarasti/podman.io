@@ -5,20 +5,23 @@
   font-family: "Source Code Pro";
   src: url("/fonts/source-code-pro/SourceCodePro-ExtraLight.ttf");
   font-weight: 200;
-  font-style: regular;
+  font-style: normal;
+  font-display: swap;
 }
-
 @font-face {
   font-family: "Source Code Pro";
   src: url("/fonts/source-code-pro/SourceCodePro-ExtraLightItalic.ttf");
   font-weight: 200;
   font-style: italic;
+  font-display: swap;
 }
+
 @font-face {
   font-family: "Source Code Pro";
   src: url("/fonts/source-code-pro/SourceCodePro-Light.ttf");
   font-weight: 300;
-  font-style: regular;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -26,13 +29,15 @@
   src: url("/fonts/source-code-pro/SourceCodePro-LightItalic.ttf");
   font-weight: 300;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Source Code Pro";
   src: url("/fonts/source-code-pro/SourceCodePro-Regular.ttf");
   font-weight: 400;
-  font-style: regular;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -40,13 +45,15 @@
   src: url("/fonts/source-code-pro/SourceCodePro-Italic.ttf");
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Source Code Pro";
   src: url("/fonts/source-code-pro/SourceCodePro-Medium.ttf");
   font-weight: 500;
-  font-style: regular;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -54,13 +61,15 @@
   src: url("/fonts/source-code-pro/SourceCodePro-MediumItalic.ttf");
   font-weight: 500;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Source Code Pro";
   src: url("/fonts/source-code-pro/SourceCodePro-SemiBold.ttf");
   font-weight: 600;
-  font-style: regular;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -68,13 +77,15 @@
   src: url("/fonts/source-code-pro/SourceCodePro-SemiBoldItalic.ttf");
   font-weight: 600;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Source Code Pro";
   src: url("/fonts/source-code-pro/SourceCodePro-Bold.ttf");
   font-weight: 700;
-  font-style: regular;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -82,13 +93,15 @@
   src: url("/fonts/source-code-pro/SourceCodePro-BoldItalic.ttf");
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "Source CodeP ro";
+  font-family: "Source Code Pro";
   src: url("/fonts/source-code-pro/SourceCodePro-ExtraBold.ttf");
   font-weight: 800;
-  font-style: regular;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -96,17 +109,21 @@
   src: url("/fonts/source-code-pro/SourceCodePro-ExtraBoldItalic.ttf");
   font-weight: 800;
   font-style: italic;
-}
-@font-face {
-  font-family: "Source Code Pro";
-  src: url("/fonts/source-code-pro/SourceCodePro-Black.ttf");
-  font-weight: 900;
-  font-style: regular;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Source Code Pro";
   src: url("/fonts/source-code-pro/SourceCodePro-Black.ttf");
   font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("/fonts/source-code-pro/SourceCodePro-BlackItalic.ttf");
+  font-weight: 900;
   font-style: italic;
+  font-display: swap;
 }
